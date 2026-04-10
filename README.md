@@ -21,7 +21,6 @@ Dự án này cung cấp một REST API cho phép:
 * Scikit-learn
 * Pandas
 * Uvicorn
-* Docker
 
 ---
 
@@ -46,27 +45,6 @@ uvicorn diabetes_fastapi:app --reload
 * Swagger UI: http://localhost:8000/docs
 
 ---
-
-### 🔹 Cách 2: Chạy bằng Docker
-
-#### Bước 1: Build image
-
-```bash
-docker build -t diabetes-api .
-```
-
-#### Bước 2: Run container
-
-```bash
-docker run -p 8000:8000 diabetes-api
-```
-
-#### Bước 3: Truy cập
-
-* http://localhost:8000/docs
-
----
-
 ## 📊 4. Input dữ liệu
 
 API nhận JSON với các trường sau:
@@ -93,14 +71,14 @@ API nhận JSON với các trường sau:
 **GET /**
 
 ```bash
-GET /
+/heath
 ```
 
 **Response**
 
 ```json
 {
-  "message": "Diabetes Prediction API is running"
+  "status": "ok"
 }
 ```
 
@@ -141,31 +119,7 @@ GET /
 * `probability` → Xác suất dự đoán
 
 ---
-
-## ⚙️ 6. Cách hoạt động
-
-1. Nhận dữ liệu từ request
-2. Tiền xử lý (scaler, imputer nếu có)
-3. Load model `.pkl`
-4. Dự đoán bằng `predict()` và `predict_proba()`
-5. Trả kết quả JSON
-
----
-
-## 📁 7. Cấu trúc project
-
-```
-.
-├── diabetes_fastapi.py
-├── model.pkl
-├── requirements.txt
-├── Dockerfile
-└── README.md
-```
-
----
-
-## ⚠️ 8. Lưu ý
+## ⚠️ 6. Lưu ý
 
 * Đảm bảo file `model.pkl` nằm đúng path
 * Feature input phải đúng thứ tự khi train model
@@ -173,24 +127,3 @@ GET /
 
 ---
 
-## 💡 9. Hướng phát triển
-
-* Thêm authentication (JWT)
-* Deploy lên cloud (Render, AWS, GCP)
-* Kết nối database
-* Logging & monitoring
-
----
-
-## 👨‍💻 10. Tác giả
-
-* Anh Tuấn
-
----
-
-## ⭐ 11. Demo
-
-Sau khi chạy:
-👉 http://localhost:8000/docs
-
-Bạn có thể test trực tiếp API tại đây.
