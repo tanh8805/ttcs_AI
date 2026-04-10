@@ -31,7 +31,7 @@ Dự án này cung cấp một REST API cho phép:
 #### Bước 1: Cài thư viện
 
 ```bash
-pip install -r requirements.txt
+pip install -r requirements.txt 
 ```
 
 #### Bước 2: Chạy API
